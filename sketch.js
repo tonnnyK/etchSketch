@@ -10,8 +10,18 @@ for (let i = 0; i < DIMENSION; ++i) {
     }
 }
 
+const clearButton = document.querySelector('#clearButton');
+clearButton.addEventListener('click', () => {
+    const container = document.querySelector('#container');
+    let cellList = container.childNodes;
+
+    for (let i = 0; i < cellList.length; ++i) {
+        cellList[i].style.backgroundColor = '#F9FAFB';
+    }
+});
+
 function paint(cell) {
     cell.addEventListener('mouseover', () => {
-        cell.style.backgroundColor = 'white';  
+        cell.style.backgroundColor = '#ff5733';
     });
 }
