@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    background-color: #5995DA;
+    padding: 20px 0;
+    flex-wrap: wrap;
+}
+
+.cell {
+    height: 20px;
+    width: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    background-color: #ff5733;
+    flex: 1 1 6.25%;
+}
