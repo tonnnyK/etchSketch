@@ -1,25 +1,46 @@
-const container = document.querySelector('#container');
 const DIMENSION = 16;
+const container = document.querySelector('#gridContainer');
+
+/*
+ * Create DIMENSION by DIMENSION grid.
+ * #gridContainer will have DIMENSION rows,
+ * each row will have DIMENSION cells.
+ */
 for (let i = 0; i < DIMENSION; ++i) {
+    const row = document.createElement('div');
+    row.classList.add('row');
+    container.appendChild(row);
+
     for (let j = 0; j < DIMENSION; ++j) {
-        const cell = document.createElement('div'); 
+        const cell = document.createElement('div');
         cell.classList.add('cell');
 
-        container.appendChild(cell);
+        row.appendChild(cell);
         paint(cell);
     }
 }
 
+/*
+ * Clears the grid
+ */
 const clearButton = document.querySelector('#clearButton');
 clearButton.addEventListener('click', () => {
-    const container = document.querySelector('#container');
-    let cellList = container.childNodes;
+    const container = document.querySelector('#gridContainer');
+    let rowList = container.childNodes;
 
-    for (let i = 0; i < cellList.length; ++i) {
-        cellList[i].style.backgroundColor = '#F9FAFB';
+    for (let i = 0; i < DIMENSION; ++i) {
+        let cellList = rowList[i].childNodes;
+
+        for (let j = 0; j < rowList.length; ++j) {
+            cellList[j].style.backgroundColor = '#F9FAFB';
+        }
     }
 });
 
+/*
+ * Event handler that changes colour of cell
+ * that are being hovered over
+ */
 function paint(cell) {
     cell.addEventListener('mouseover', () => {
         cell.style.backgroundColor = '#ff5733';

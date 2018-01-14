@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-#container {
+#gridContainer {
     display: flex;
     justify-content: center;
     background-color: #5995DA;
@@ -13,11 +13,12 @@
 }
 
 .cell {
-    height: 20px;
-    width: 20px;
     border-style: solid;
     border-width: 1px;
     border-color: black;
+
+    height: 20px;
+    width: 20px;
     background-color: #F9FAFB;
-    flex: 1 1 6.25%;
+    flex: initial;
 }
