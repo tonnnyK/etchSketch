@@ -1,3 +1,5 @@
+"use strict";
+
 let DIMENSION = 16;
 
 createGrid();
@@ -32,8 +34,23 @@ function createGrid() {
 function clearGrid() {
     const clearButton = document.querySelector('#clearButton');
     clearButton.addEventListener('click', () => {
+
+        // Change dimension to user input
+        let result = window.prompt('How many squares per side?',
+            `${DIMENSION}`);
+        if (result) DIMENSION = result;
+
+        // remove all children from #gridContainer and recreate
+        // grid using new DIMENSION value
         const container = document.querySelector('#gridContainer');
-        let rowList = container.childNodes;
+        while (container.firstChild) {
+            container.removeChild(container.firstChild);
+        }
+
+        createGrid();
+
+        /*
+                let rowList = container.childNodes;
 
         for (let i = 0; i < DIMENSION; ++i) {
             let cellList = rowList[i].childNodes;
@@ -41,7 +58,7 @@ function clearGrid() {
             for (let j = 0; j < rowList.length; ++j) {
                 cellList[j].style.backgroundColor = '#F9FAFB';
             }
-        }
+        } */
     });
 }
 
